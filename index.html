@@ -10,80 +10,154 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <style>
-            #bmiCalculate{
-                display: grid;
-                grid-template-columns: 6fr 6fr;
-            }
-        </style>
-        <script type="text/javascript">
-              function bodyLoad(){
-                
-                 var BMI = document.getElementById("bmiValue").value;
-                   var Value = document.getElementById("YourValue");
-                   if(BMI<18.5){
-                     Value.style.marginLeft ="80px";
-                     document.getElementById("bmiWeight").innerHTML = "(Underweight)";
-                   }
-                   else if(BMI<=24 && bmi>=18.6){
-                    Value.style.marginLeft = "210px";
-                    document.getElementById("bmiWeight").innerHTML = "(Normal)";
-                   }
-                   else if(BMI<=29.9 && BMI>=25 ){
-                    Value.style.marginLeft = "350px";
-                    document.getElementById("bmiWeight").innerHTML = "(Overweight)";
-                   }
-                   else{
-                    Value.style.marginLeft = "485px";
-                    document.getElementById("bmiWeight").innerHTML = "(Obese)";
-                   }
-              }
-              
-              function CalculateClick(){
-                 var W = document.getElementById("txtWeight").value;
-                 var H = document.getElementById("txtHeight").value / 100;
-                 var Male = document.getElementById("checkMale");
-                 var Female = document.getElementById("checkFemale");
-
-                 document.getElementById("bmiValue").innerHTML = Math.round( W / (H * H));
-
-                 
-                 
-              }
-        </script>
+    <style>
+        #calculate{
+            margin-top: 50px;
+            width: 400px;
+            height: 550px;
+            background-color: rgb(219, 250, 240);
+            text-align: center;
+            box-shadow: 5px 5px 5px grey;
+        }
+        body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            flex-direction: column;
+        }
+        .gender{
+          width: 80%;
+          height: 50px;
+          background-color: white;
+          font-weight: bold;
+           margin: 20px 0 0 40px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .weightHeight{
+            width: 80%;
+          height: 70px;
+          background-color: white;
+          font-weight: bold;
+           margin: 20px 0 0 40px;
+           display: flex;
+           justify-content: space-around;
+           align-items: center;
+        }
+        button{
+            margin-top: 50px;
+            padding: 10px;
+            font-size: 25px;
+            color: blue;
+        }
+        #pg{
+            margin-top: 50px;
+            width: 600px;
+            height: 300px;
+            background-color: rgb(219, 250, 240);
+            box-shadow: 5px 5px 5px grey;
+            margin-bottom: 50px;
+        }
+        /* .comment{
+            display: none;
+            border: dashed 1px;
+            border-radius: 7px;
+            padding: 5px;
+        } */
+    </style>
+    <script type="text/javascript">
+       
+      
+      
+      function calculateClick(){
+        var age = document.getElementById("numAge").value;
+        var Height = document.getElementById("numHeight").value / 100;
+        var Weight = document.getElementById("numWeight").value;
+        var Male = document.getElementById("checkMale");
+        var Female = document.getElementById("checkFemale");
+         document.getElementById("result").innerHTML = Math.round( Weight / (Height * Height));
+         var BMI = document.getElementById("result").value;
+        }
+        
+        function bodyLoad(){
+          var Value = document.getElementById("YourValue");
+          if(Male.checked){
+           
+            if(BMI<18.5){
+                       Value.style.marginLeft ="80px";
+                       document.getElementById("comment").innerHTML = "(Underweight)";
+                       
+                     }
+                     else if(BMI<=24 && bmi>=18.6){
+                      Value.style.marginLeft = "210px";
+                      document.getElementById("comment").innerHTML = "(Normal)";
+                     }
+                     else if(BMI<=29.9 && BMI>=25 ){
+                      Value.style.marginLeft = "350px";
+                      document.getElementById("comment").innerHTML = "(Overweight)";
+                     }
+                     else{
+                      Value.style.marginLeft = "485px";
+                      document.getElementById("comment").innerHTML = "(Obese)";
+                     }
+          }
+          if(Female.checked){
+            if(BMI<18.5){
+                       Value.style.marginLeft ="80px";
+                       document.getElementById("comment").innerHTML = "(Underweight)";
+                       
+                     }
+                     else if(BMI<=24 && bmi>=18.6){
+                      Value.style.marginLeft = "210px";
+                      document.getElementById("comment").innerHTML = "(Normal)";
+                     }
+                     else if(BMI<=29.9 && BMI>=25 ){
+                      Value.style.marginLeft = "350px";
+                      document.getElementById("comment").innerHTML = "(Overweight)";
+                     }
+                     else{
+                      Value.style.marginLeft = "485px";
+                      document.getElementById("comment").innerHTML = "(Obese)";
+                     }
+          }
+        }
+    </script>
 </head>
-<body class="container-fluid" style="background-color: lightgray;" onload="bodyLoad()">
-    <h1 class="text-center text-danger" style="font-size: 4rem;">BMI Calculator</h1>
-    <div class="bg-light p-4" id="bmiCalculate">
-        <!-- input area -->
+<body class="container-fluid" onload="bodyLoad()">
+    <!-- BMI CALCULATOR -->
+    <div id="calculate">
+       <h1 class="text-center" style="font-size: 3rem;">BMI Calculator</h1>
+        <hr>
+         <div style="width: 80%; height: 100px; background-color: white; margin-left: 40px; margin-top: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+               <label style="font-weight: bold;">AGE(1 year or above)</label> <br>
+               <input type="number" id="numAge" >
+         </div>
+         <div class="gender">
+            <input type="radio" name="Gender" id="checkMale"><span class="pe-5 ps-2">Male</span>
+            <input type="radio" name="Gender" id="checkFemale"><span class="ps-2">Female</span>
+         </div>
+         <div class="weightHeight">
+           <div>
+            <label class="p-2">Weight(kg)</label>
+            <br>
+            <input type="num" id="numWeight" size="4">
+
+           </div>
+           <div>
+            <label class="p-2">Height(cm)</label>
+            <br>
+            <input type="num" id="numHeight" size="4">
+           </div>
+         </div>
+         <button class="text-center" onclick="calculateClick()">Calculate</button>
+    </div>
+    <!-- Progress bar  -->
+    <div id="pg">
+        
         <div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <label>GENDER</label> <br>
-                <input type="radio" id="checkMale" name="Gender" class="form-check-input"><label class="form-check-label">Male</label>
-                <input type="radio" id="checkFemale" name="Gender" class="form-check-input"><label classs="form-check-label">Female</label>
-                </div>
-                <div style="display: flex; flex-direction: column;">
-                    <label>AGE</label>
-                    <input type="number" id="numAge" placeholder="in years"> 
-                    <span class="text-secondary">(1 year or above)</span> 
-                </div>
-            </div>
-            <div class="d-flex justify-content-between mt-5">
-                <div>
-                   <label>HEIGHT</label> <br>
-                   <input type="text" id="txtHeight" placeholder="in cm"> 
-                </div>
-                <div>
-                    <label>WEIGHT</label> <br>
-                    <input type="text" id="txtWeight" placeholder="in kgs"> 
-                </div>
-            </div>
-            <button class="btn btn-primary mt-5" onclick="CalculateClick()" style="margin-left: 200px; font-size: 1.5rem;">Calculate</button>
-        </div>
-        <!-- progress bar division -->
-        <div class="bg-dark text-light ms-5">
-          <div>
             <div class="row ms-4 mt-3">
                 <div class="col">Underweight</div>
                 <div class="col">Normal</div>
@@ -107,12 +181,12 @@
             </div>
           </div>
           <!-- bmi value -->
-          <div class="h2 text-center">
+          <div class="h2 text-center mt-4">
             Your BMI is 
-            <p id="bmiValue"></p>
-            <p id="bmiWeight"></p>
-          </div>
+            <p id="result"></p>
+            <p id="comment" class="comment"></p>
+          </div> 
+        </div>
       </div>
-    </div>
 </body>
 </html>
