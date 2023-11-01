@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        <style>
+            #bmiCalculate{
+                display: grid;
+                grid-template-columns: 6fr 6fr;
+            }
+        </style>
+        <script type="text/javascript">
+              function bodyLoad(){
+                
+                 var BMI = document.getElementById("bmiValue").value;
+                   var Value = document.getElementById("YourValue");
+                   if(BMI<18.5){
+                     Value.style.marginLeft ="80px";
+                     document.getElementById("bmiWeight").innerHTML = "(Underweight)";
+                   }
+                   else if(BMI<=24 && bmi>=18.6){
+                    Value.style.marginLeft = "210px";
+                    document.getElementById("bmiWeight").innerHTML = "(Normal)";
+                   }
+                   else if(BMI<=29.9 && BMI>=25 ){
+                    Value.style.marginLeft = "350px";
+                    document.getElementById("bmiWeight").innerHTML = "(Overweight)";
+                   }
+                   else{
+                    Value.style.marginLeft = "485px";
+                    document.getElementById("bmiWeight").innerHTML = "(Obese)";
+                   }
+              }
+              
+              function CalculateClick(){
+                 var W = document.getElementById("txtWeight").value;
+                 var H = document.getElementById("txtHeight").value / 100;
+                 var Male = document.getElementById("checkMale");
+                 var Female = document.getElementById("checkFemale");
+
+                 document.getElementById("bmiValue").innerHTML = Math.round( W / (H * H));
+
+                 
+                 
+              }
+        </script>
+</head>
+<body class="container-fluid" style="background-color: lightgray;" onload="bodyLoad()">
+    <h1 class="text-center text-danger" style="font-size: 4rem;">BMI Calculator</h1>
+    <div class="bg-light p-4" id="bmiCalculate">
+        <!-- input area -->
+        <div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <label>GENDER</label> <br>
+                <input type="radio" id="checkMale" name="Gender" class="form-check-input"><label class="form-check-label">Male</label>
+                <input type="radio" id="checkFemale" name="Gender" class="form-check-input"><label classs="form-check-label">Female</label>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label>AGE</label>
+                    <input type="number" id="numAge" placeholder="in years"> 
+                    <span class="text-secondary">(1 year or above)</span> 
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-5">
+                <div>
+                   <label>HEIGHT</label> <br>
+                   <input type="text" id="txtHeight" placeholder="in cm"> 
+                </div>
+                <div>
+                    <label>WEIGHT</label> <br>
+                    <input type="text" id="txtWeight" placeholder="in kgs"> 
+                </div>
+            </div>
+            <button class="btn btn-primary mt-5" onclick="CalculateClick()" style="margin-left: 200px; font-size: 1.5rem;">Calculate</button>
+        </div>
+        <!-- progress bar division -->
+        <div class="bg-dark text-light ms-5">
+          <div>
+            <div class="row ms-4 mt-3">
+                <div class="col">Underweight</div>
+                <div class="col">Normal</div>
+                <div class="col">Overweight</div>
+                <div class="col">Obese</div>
+            </div>
+          </div>
+          <!-- progress bar -->
+          <div>
+            <div class="mt-2">
+               <div class="progress  me-3">
+                <div class="progress-bar bg-warning" style="width: 25%;"></div>
+                <div class="progress-bar bg-success" style="width: 25%;"></div>
+                <div class="progress-bar bg-warning" style="width: 25%;"></div>
+                <div class="progress-bar bg-danger" style="width: 25%;"></div>
+               </div>
+            </div>
+            <div id="yourValue" >
+                <span class="bi bi-caret-down-fill"></span>
+                <div>You</div>
+            </div>
+          </div>
+          <!-- bmi value -->
+          <div class="h2 text-center">
+            Your BMI is 
+            <p id="bmiValue"></p>
+            <p id="bmiWeight"></p>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
