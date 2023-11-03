@@ -3,194 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <style>
-        #calculate{
-            margin-top: 50px;
-            width: 400px;
-            height: 550px;
-            background-color: rgb(219, 250, 240);
-            text-align: center;
-            box-shadow: 5px 5px 5px grey;
-        }
-        body{
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial;
-            flex-direction: column;
-        }
-        .gender{
-          width: 80%;
-          height: 50px;
-          background-color: white;
-          font-weight: bold;
-           margin: 20px 0 0 40px;
-           display: flex;
-           justify-content: center;
-           align-items: center;
-        }
-        .weightHeight{
-            width: 80%;
-          height: 96px;
-          background-color: white;
-          font-weight: bold;
-           margin: 20px 0 0 40px;
-           display: flex;
-           justify-content: space-around;
-           align-items: center;
-        }
-        button{
-            margin-top: 50px;
-            padding: 10px;
-            font-size: 25px;
-            background-color: black;
-            color: blue;
-            border: none;
-        }
-        button:hover{
-          background-color: white;
-        }
-        #pg{
-            margin-top: 50px;
-            width: 600px;
-            height: 300px;
-            background-color: rgb(219, 250, 240);
-            box-shadow: 5px 5px 5px grey;
-            margin-bottom: 50px;
-        }
-        /* .comment{
-            display: none;
-            border: dashed 1px;
-            border-radius: 7px;
-            padding: 5px;
-        } */
-    </style>
-    <script type="text/javascript">
-       
-      
-      
-      function calculateClick(){
-        var age = parseInt(document.getElementById("numAge").value);
-        var Height = parseInt(document.getElementById("numHeight").value) / 100;
-        var Weight =parseInt( document.getElementById("numWeight").value);
-        var Male = document.getElementById("checkMale");
-        var Female = document.getElementById("checkFemale");
-        var BMI =parseFloat(document.getElementById("result").value);
-        var Slider = document.getElementById("slider");
-        var Comment = document.getElementById("comment");
-        if(Male.checked){
-          
-          document.getElementById("result").innerHTML = (Weight / (Height * Height)).toFixed(2);
-            if(BMI<18.5){
-                       Slider.style.marginLeft ="10%";
-                       Comment.innerHTML = "(Underweight)";
-                       
-                     }
-                     else if(BMI<=24 && BMI>=18.6){
-                      Slider.style.marginLeft = "35%";
-                      Comment.innerHTML = "(Normal)";
-                     }
-                     else if(BMI<=29.9 && BMI>=25 ){
-                      Slider.style.marginLeft = "60%";
-                      Comment.innerHTML = "(Overweight)";
-                     }
-                     else if(BMI>=30){
-                      Slider.style.marginLeft = "85%";
-                      Comment.innerHTML = "(Obese)";
-                     }
-          }
-          if(Female.checked){
-            document.getElementById("result").innerHTML = (Weight / (Height * Height)).toFixed(2);
-            if(BMI<18.5){
-                       Value.style.marginLeft ="80px";
-                       Comment.innerHTML = "(Underweight)";
-                       
-                     }
-                     else if(BMI<=24 && bmi>=18.6){
-                      Slider.style.marginLeft = "210px";
-                      Comment.innerHTML = "(Normal)";
-                     }
-                     else if(BMI<=29.9 && BMI>=25 ){
-                      Slider.style.marginLeft = "350px";
-                      Comment.innerHTML = "(Overweight)";
-                     }
-                     else{
-                      Slider.style.marginLeft = "485px";
-                      Comment.innerHTML = "(Obese)";
-                     }
-          }
-        }
-    </script>
+        <style>
+            #project{
+                display: flex;
+                justify-content: space-evenly;
+                
+            }
+            button{
+                font-size: 2rem;
+            }
+        </style>
 </head>
-<body class="container-fluid" >
-    <!-- BMI CALCULATOR -->
-    <div id="calculate">
-       <h1 class="text-center" style="font-size: 3rem;">BMI Calculator</h1>
-        <hr>
-         <div style="width: 80%; height: 100px; background-color: white; margin-left: 40px; margin-top: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-               <label class="form-label" style="font-weight: bold; margin-bottom: 0;">AGE(1 year or above)</label> <br>
-               <input  class="form-control" type="text" id="numAge" >
-         </div>
-         <div class="gender">
-            <input  class="form-check-input" type="radio" name="Gender" id="checkMale"><span class="pe-5 ps-2">Male</span>
-            <input  class="form-check-input" type="radio" name="Gender" id="checkFemale"><span class="ps-2">Female</span>
-         </div>
-         <div class="weightHeight">
-           <div>
-            <label class="p-2 form-label">Weight(kg)</label>
-            <br>
-            <input  class="form-control" type="text" id="numWeight" size="10">
-
-           </div>
-           <div>
-            <label class="p-2 form-label">Height(cm)</label>
-            <br>
-            <input  class="form-control" type="text" id="numHeight" size="10">
-           </div>
-         </div>
-         <button class="text-center" onclick="calculateClick()">Calculate</button>
+<body class="container-fluid bg-dark">
+    <h1 class="text-light text-center" style="font-size: 3rem; font-weight: bold; text-decoration:underline;">JS-Practice Projects</h1>
+    <div id="project">
+        <!-- BMI-CALCULATOR -->
+          <div class="d-flex flex-column mt-5">
+            <h2 class="text-light text-center">BMI-Calculator</h2>
+             <img src="./public/images/BMI-Calculator.PNG" alt="Bmi-calculator" width="200" height="200" >
+             <button class="btn btn-link"><a href="./public/BMI-Calculator.html">Click here to see</a></button>
+          </div>
+         
+          <!-- STRING FORMATTING -->
+          <div class="d-flex flex-column mt-5">
+            <h2 class="text-light text-center">String Formatting</h2>
+             <img src="./public/images/string-Formatting.PNG" alt="string-formatting" width="200" height="200" >
+             <button class="btn btn-link"><a href="./public/StringFormatting.html">Click here to see</a></button>
+          </div>
     </div>
-    <!-- Progress bar  -->
-    <div id="pg">
-        
-        <div>
-            <div class="row ms-4 mt-3">
-                <div class="col">Underweight</div>
-                <div class="col">Normal</div>
-                <div class="col">Overweight</div>
-                <div class="col">Obese</div>
-            </div>
-          </div>
-          <!-- progress bar -->
-          <div>
-            <div class="mt-2">
-               <div class="progress  me-3">
-                <div class="progress-bar bg-warning" style="width: 25%;"></div>
-                <div class="progress-bar bg-success" style="width: 25%;"></div>
-                <div class="progress-bar bg-warning" style="width: 25%;"></div>
-                <div class="progress-bar bg-danger" style="width: 25%;"></div>
-               </div>
-            </div>
-            <div id="slider" >
-                <span class="bi bi-caret-down-fill"></span>
-                <div>You</div>
-            </div>
-          </div>
-          <!-- bmi value -->
-          <div class="h2 text-center mt-4">
-            Your BMI is 
-            <p id="result"></p>
-            <p id="comment" class="comment"></p>
-          </div> 
-        </div>
-      </div>
 </body>
 </html>
