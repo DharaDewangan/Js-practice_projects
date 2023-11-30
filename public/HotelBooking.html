@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stay with Us</title>
+    <title>Hotel Booking</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">   
@@ -73,15 +73,15 @@
      BalanceAmt = TotalAmt - document.getElementById("txtAmount").value;
 
      if(Persons > 2){
-     TotalAmt +=  Persons*1000;
+     TotalAmt +=  (Persons-2)*1000;
      BalanceAmt = TotalAmt - document.getElementById("txtAmount").value;
      } 
      
       console.log(TotalAmt);
       console.log(BalanceAmt);
 
-        document.getElementById("lblAdvAmt").innerHTML = document.getElementById("txtAmount").value;
-        document.getElementById("lblBalAmt").innerHTML = BalanceAmt;
+        document.getElementById("lblAdvAmt").innerHTML = document.getElementById("txtAmount").value + "/-";
+        document.getElementById("lblBalAmt").innerHTML = BalanceAmt + "/-";
 
        }
     </script>
@@ -93,7 +93,7 @@
   </style>
 
 </head>
-<body class="container-fluid">
+<body class="container-fluid" style="background-color:rgb(245, 235, 240)">
    <h2 class="m-3 fw-bold text-center" style="font-family: 'Dancing Script', cursive;">Welcome Home <span class="bi bi-house-door"></span></h2>
    <ul class="nav justify-content-center fw-bold fs-4 nav-tabs">
     <li class="nav-item" role="presentation">
